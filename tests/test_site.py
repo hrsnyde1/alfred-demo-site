@@ -54,9 +54,12 @@ class SiteTest(unittest.TestCase):
         self.assertIsNotNone(root)
         for token in ("--background", "--surface", "--text", "--muted", "--accent"):
             self.assertIn(token, root.group(1))
-        # Outside :root, colours are referenced through tokens, not hard-coded.
-        rest = css[root.end():]
-        self.assertEqual(re.findall(r"#[0-9a-fA-F]{3,8}\b", rest), [])
+        # Hex colours appear only where a design token is defined (for example a
+        # dark-mode token block); every other rule uses var(--token).
+        for declaration in re.findall(r"([^{};]+):([^{};]+);", css):
+            prop, value = (part.strip() for part in declaration)
+            if re.search(r"#[0-9a-fA-F]{3,8}\b", value):
+                self.assertTrue(prop.startswith("--"), f"hard-coded colour in {prop}")
 
 
 if __name__ == "__main__":
