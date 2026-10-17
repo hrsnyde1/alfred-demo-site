@@ -16,6 +16,16 @@ be tested for real: owner text → Alfred → CTO plan → frontend and backend 
 python3 -m unittest discover -v
 ```
 
-## Deploy
+## Preview locally
+For now the site runs on this machine only (no Vercel yet):
+
+```bash
+python3 serve.py
+```
+
+Then open http://127.0.0.1:8080. `serve.py` serves the pages and runs
+`api/*.py` the way Vercel would.
+
+## Deploy (later)
 Import this repository in Vercel with the default settings (framework preset
 "Other", no build command). Every push to `main` deploys.
