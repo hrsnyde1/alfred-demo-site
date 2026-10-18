@@ -4,6 +4,7 @@
   --surface: #ffffff;
   --text: #1f2a2e;
   --muted: #5b6a70;
+  --footer-text: #b71c1c;
   --accent: #2f6f62;
   --accent-text: #ffffff;
   --border: #e3ded3;
@@ -17,6 +18,7 @@
   --surface: #202c30;
   --text: #f0f4f1;
   --muted: #b8c8c7;
+  --footer-text: #ff6b6b;
   --accent: #9bd8c3;
   --accent-text: #10211d;
   --border: #3c5053;
@@ -29,6 +31,7 @@
     --surface: #202c30;
     --text: #f0f4f1;
     --muted: #b8c8c7;
+    --footer-text: #ff6b6b;
     --accent: #9bd8c3;
     --accent-text: #10211d;
     --border: #3c5053;
@@ -173,7 +176,7 @@ nav a:hover {
 }
 
 .site-footer {
-  color: var(--muted);
+  color: var(--footer-text);
   font-size: 0.9rem;
   padding-top: 16px;
   padding-bottom: 40px;
