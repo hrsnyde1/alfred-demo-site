@@ -1,0 +1,292 @@
+{
+  "tool": "1.0.0",
+  "startedAt": "2026-10-20T18:54:57.003Z",
+  "repo": ".qa-alfa-12",
+  "base": {
+    "ref": "origin/main",
+    "sha": "7da0c9e057bcdf5f69dfffd078c2b37ece5e1a20"
+  },
+  "head": {
+    "ref": "HEAD",
+    "sha": "b99d863746c3a308ee8c6d4d1a85b2ef29a7d223"
+  },
+  "verdict": "REVIEW",
+  "routes": [
+    "/"
+  ],
+  "viewports": [
+    "desktop",
+    "mobile"
+  ],
+  "findings": [],
+  "preexisting": 8,
+  "changes": [
+    {
+      "route": "/",
+      "theme": "light",
+      "viewport": "desktop",
+      "ratio": 0.00210898696192053,
+      "box": [
+        139,
+        1104,
+        405,
+        1125
+      ],
+      "sizeBefore": [
+        1280,
+        1208
+      ],
+      "sizeAfter": [
+        1280,
+        1208
+      ],
+      "base": "base/home--light--desktop.png",
+      "head": "head/home--light--desktop.png",
+      "diff": "diff/home--light--desktop.png"
+    },
+    {
+      "route": "/",
+      "theme": "light",
+      "viewport": "mobile",
+      "ratio": 0.0053258206761391475,
+      "box": [
+        19,
+        1466,
+        285,
+        1487
+      ],
+      "sizeBefore": [
+        390,
+        1570
+      ],
+      "sizeAfter": [
+        390,
+        1570
+      ],
+      "base": "base/home--light--mobile.png",
+      "head": "head/home--light--mobile.png",
+      "diff": "diff/home--light--mobile.png"
+    },
+    {
+      "route": "/",
+      "theme": "dark",
+      "viewport": "desktop",
+      "ratio": 0.0021180411837748345,
+      "box": [
+        140,
+        1104,
+        405,
+        1125
+      ],
+      "sizeBefore": [
+        1280,
+        1208
+      ],
+      "sizeAfter": [
+        1280,
+        1208
+      ],
+      "base": "base/home--dark--desktop.png",
+      "head": "head/home--dark--desktop.png",
+      "diff": "diff/home--dark--desktop.png"
+    },
+    {
+      "route": "/",
+      "theme": "dark",
+      "viewport": "mobile",
+      "ratio": 0.0053486852849910175,
+      "box": [
+        20,
+        1466,
+        285,
+        1487
+      ],
+      "sizeBefore": [
+        390,
+        1570
+      ],
+      "sizeAfter": [
+        390,
+        1570
+      ],
+      "base": "base/home--dark--mobile.png",
+      "head": "head/home--dark--mobile.png",
+      "diff": "diff/home--dark--mobile.png"
+    }
+  ],
+  "captures": [
+    {
+      "side": "head",
+      "route": "/",
+      "theme": "light",
+      "viewport": "desktop",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "head/home--light--desktop.png",
+      "error": null,
+      "dominant": 0.696,
+      "diffRatio": 0.00210898696192053
+    },
+    {
+      "side": "head",
+      "route": "/",
+      "theme": "light",
+      "viewport": "mobile",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "head/home--light--mobile.png",
+      "error": null,
+      "dominant": 0.516,
+      "diffRatio": 0.0053258206761391475
+    },
+    {
+      "side": "head",
+      "route": "/",
+      "theme": "dark",
+      "viewport": "desktop",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "head/home--dark--desktop.png",
+      "error": null,
+      "dominant": 0.696,
+      "diffRatio": 0.0021180411837748345
+    },
+    {
+      "side": "head",
+      "route": "/",
+      "theme": "dark",
+      "viewport": "mobile",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "head/home--dark--mobile.png",
+      "error": null,
+      "dominant": 0.515,
+      "diffRatio": 0.0053486852849910175
+    }
+  ],
+  "baseCaptures": [
+    {
+      "side": "base",
+      "route": "/",
+      "theme": "light",
+      "viewport": "desktop",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "base/home--light--desktop.png",
+      "error": null,
+      "dominant": 0.6957608242942253
+    },
+    {
+      "side": "base",
+      "route": "/",
+      "theme": "light",
+      "viewport": "mobile",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "base/home--light--mobile.png",
+      "error": null,
+      "dominant": 0.5161194439363453
+    },
+    {
+      "side": "base",
+      "route": "/",
+      "theme": "dark",
+      "viewport": "desktop",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "base/home--dark--desktop.png",
+      "error": null,
+      "dominant": 0.6956657552106912
+    },
+    {
+      "side": "base",
+      "route": "/",
+      "theme": "dark",
+      "viewport": "mobile",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "failedRequests": [
+        "404 /api/tip"
+      ],
+      "overflow": 0,
+      "contrast": [],
+      "textElements": 20,
+      "file": "base/home--dark--mobile.png",
+      "error": null,
+      "dominant": 0.5155021035302726
+    }
+  ],
+  "headError": null,
+  "baseError": null,
+  "frontendFiles": [
+    "index.html"
+  ],
+  "browser": "153.0.8010.12",
+  "finishedAt": "2026-10-20T18:55:11.271Z"
+}
