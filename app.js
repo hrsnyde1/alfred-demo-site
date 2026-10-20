@@ -41,6 +41,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let anchorScrollTimeout;
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || reducedMotion.matches) return;
+      if (!link.hash || !document.getElementById(link.hash.slice(1))) return;
+
+      // Let the browser perform the anchor navigation and manage its history.
+      document.documentElement.classList.add("anchor-scroll");
+      clearTimeout(anchorScrollTimeout);
+      anchorScrollTimeout = setTimeout(() => {
+        document.documentElement.classList.remove("anchor-scroll");
+      }, 1200);
+    });
+  });
+
+  if ("IntersectionObserver" in window && !reducedMotion.matches) {
+    const sections = document.querySelectorAll("main > section:not(.hero)");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    sections.forEach((section) => {
+      section.classList.add("reveal");
+      observer.observe(section);
+    });
+
+    const showAllForReducedMotion = () => {
+      if (!reducedMotion.matches) return;
+      document.documentElement.classList.remove("anchor-scroll");
+      clearTimeout(anchorScrollTimeout);
+      observer.disconnect();
+      sections.forEach((section) => section.classList.remove("reveal"));
+    };
+    if (reducedMotion.addEventListener) {
+      reducedMotion.addEventListener("change", showAllForReducedMotion);
+    } else {
+      reducedMotion.addListener(showAllForReducedMotion);
+    }
+  }
+
   // Loads the tip of the day from the site's own API (api/tip.py on Vercel).
   (async function showTip() {
     const target = document.getElementById("tip");
