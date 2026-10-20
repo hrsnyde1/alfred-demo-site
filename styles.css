@@ -52,6 +52,16 @@ body {
 
 a {
   color: var(--accent);
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+a:hover {
+  text-decoration-color: var(--text);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .site-header,
@@ -88,11 +98,15 @@ nav {
 
 nav a {
   color: var(--muted);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
   color: var(--accent);
+  text-decoration-color: currentColor;
 }
 
 .theme-toggle {
@@ -103,10 +117,12 @@ nav a:hover {
   padding: 8px 14px;
   font: inherit;
   cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .theme-toggle:hover {
   border-color: var(--accent);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 }
 
 .theme-toggle:focus-visible {
@@ -139,6 +155,11 @@ nav a:hover {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.button:hover {
+  box-shadow: 0 6px 18px rgb(0 0 0 / 14%);
 }
 
 .cards {
@@ -157,6 +178,10 @@ nav a:hover {
   padding: 24px;
 }
 
+.card {
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
 .card h2,
 .tip h2,
 .contact h2 {
@@ -173,6 +198,63 @@ nav a:hover {
 .tip,
 .contact {
   margin-bottom: 24px;
+}
+
+img {
+  transition: transform 220ms ease;
+}
+
+@media (hover: hover) {
+  .theme-toggle:hover,
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgb(0 0 0 / 9%);
+  }
+
+  a:hover img,
+  .card:hover img,
+  img:hover {
+    transform: scale(1.02);
+  }
+}
+
+.reveal {
+  transition: opacity 550ms ease, transform 550ms ease;
+}
+
+.reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.anchor-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.anchor-scroll {
+    scroll-behavior: auto;
+  }
+
+  a,
+  .theme-toggle,
+  .button,
+  .card,
+  img,
+  .reveal {
+    transition: none;
+  }
+
+  .reveal:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .site-footer {
