@@ -61,12 +61,13 @@ class SiteTest(unittest.TestCase):
             if re.search(r"#[0-9a-fA-F]{3,8}\b", value):
                 self.assertTrue(prop.startswith("--"), f"hard-coded colour in {prop}")
 
-    def test_footer_reads_alfred_is_goated(self):
+    def test_footer_reads_hello_from_alfred(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         footer = re.search(r'<footer class="site-footer">(.*?)</footer>', html, re.S)
         self.assertIsNotNone(footer)
-        self.assertEqual(re.sub(r"<[^>]+>", "", footer.group(1)).strip(), "Alfred is Goated")
+        self.assertEqual(re.sub(r"<[^>]+>", "", footer.group(1)).strip(), "hello from Alfred")
         self.assertNotIn("Built by Alfred", html)
+        self.assertNotIn("Alfred is Goated", html)
         css = (ROOT / "styles.css").read_text(encoding="utf-8")
         rules = re.findall(r"\.site-footer\s*\{(.*?)\}", css, re.S)
         footer_css = "".join(rules)
